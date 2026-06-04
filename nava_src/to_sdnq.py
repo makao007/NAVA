@@ -47,7 +47,7 @@ def load_text_encoder (text_encoder_path:str, text_tokenizer_path:str, dtype=tor
     text_model.model = text_encoder
     return text_model
 
-def load_text_encoder_model (checkpoint_path:str, dtype=torch.bfloat16, device:str='cuda')
+def load_text_encoder_model (checkpoint_path:str, dtype=torch.bfloat16, device:str='cuda'):
     model = umt5_xxl(
         encoder_only=True,
         return_tokenizer=False,
@@ -56,7 +56,7 @@ def load_text_encoder_model (checkpoint_path:str, dtype=torch.bfloat16, device:s
     model.load_state_dict(torch.load(checkpoint_path, map_location='cpu'))
     return model
 
-def text_encoder_to_sdnq (checkpoint_path:str, dtype=torch.bfloat16, device:str='cuda', quant_model:str='text_encoder_4bit')
+def text_encoder_to_sdnq (checkpoint_path:str, dtype=torch.bfloat16, device:str='cuda', quant_model:str='text_encoder_4bit'):
     model = load_text_encoder_model(checkpoint_path, dtype, device)
     quantized_model = sdnq_post_load_quant(model, **get_sdnq_config())
     save_sdnq_model(quantized_model, quant_model, is_pipeline=False)
@@ -81,4 +81,5 @@ def text_encoder_eval(prompt:str, text_encoder_path:str, text_tokenizer_path:str
         print(len(text_list2), text_lens2, spk_pos2)
 
 if __name__ == "__main__":
-    text_encoder_eval(prompt, 'models_t5_umt5-xxl-enc-bf16.pth', 'Wan2.2-TI2V-5B/google/umt5-xxl')
+    folder = '/content/Wan2.2-TI2V-5B/'
+    text_encoder_eval(prompt, folder+'models_t5_umt5-xxl-enc-bf16.pth', folder+'/google/umt5-xxl')
