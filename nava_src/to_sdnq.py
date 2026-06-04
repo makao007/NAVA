@@ -90,4 +90,6 @@ if __name__ == "__main__":
     prompt = 'a running cat'
     prompt = '超人坐在咖啡馆里 满脸愁容 说道<S>I really need to drink this coffee<E>'
     #'data0x/umt5_xxl_fp16'   umt5_xxl_fp16.safetensors
-    text_encoder_eval(prompt, folder+'models_t5_umt5-xxl-enc-bf16.pth', 'google/umt5-xxl')
+    t5_1 = folder+'models_t5_umt5-xxl-enc-bf16.pth'
+    t5_2 = '/content/umt5_xxl_fp16.safetensors'
+    text_encoder_eval(prompt,t5_2,'google/umt5-xxl')
