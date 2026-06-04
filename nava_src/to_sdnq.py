@@ -73,7 +73,7 @@ def text_encoder_eval(prompt:str, text_encoder_path:str, text_tokenizer_path:str
         device=device,
         checkpoint_path=text_encoder_path,
         tokenizer_path=text_tokenizer_path,
-        cpu_offload=True,
+        cpu_offload=False,
         shard_fn=None)
 
     with torch.no_grad():
@@ -88,4 +88,6 @@ def text_encoder_eval(prompt:str, text_encoder_path:str, text_tokenizer_path:str
 if __name__ == "__main__":
     folder = '/content/Wan2.2-TI2V-5B/'
     prompt = 'a running cat'
+    prompt = '超人坐在咖啡馆里 满脸愁容 说道<S>I really need to drink this coffee<E>'
+    #'data0x/umt5_xxl_fp16'   umt5_xxl_fp16.safetensors
     text_encoder_eval(prompt, folder+'models_t5_umt5-xxl-enc-bf16.pth', 'google/umt5-xxl')
