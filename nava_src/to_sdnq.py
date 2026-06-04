@@ -92,4 +92,4 @@ if __name__ == "__main__":
     #'data0x/umt5_xxl_fp16'   umt5_xxl_fp16.safetensors
     t5_1 = folder+'models_t5_umt5-xxl-enc-bf16.pth'
     t5_2 = '/content/umt5_xxl_fp16.safetensors'
-    text_encoder_eval(prompt,t5_2,'google/umt5-xxl')
+    text_encoder_eval(prompt,t5_2,'google/umt5-xxl', dtype=torch.float16)
