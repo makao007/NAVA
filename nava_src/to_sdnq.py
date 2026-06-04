@@ -43,7 +43,7 @@ def load_text_encoder (text_encoder_path:str, text_tokenizer_path:str, dtype=tor
         device=device,
         checkpoint_path=text_encoder_path,
         tokenizer_path=text_tokenizer_path,
-        cpu_offload=True,
+        cpu_offload=False,
         shard_fn=None)
     text_encoder = text_model.model
     text_encoder.requires_grad_(False)
