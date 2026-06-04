@@ -5,6 +5,7 @@ from sdnq import SDNQConfig
 from sdnq.loader import save_sdnq_model, apply_sdnq_options_to_model
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from models.nava.modules.t5 import umt5_xxl, T5EncoderModel
 
 def get_sdnq_config ():
