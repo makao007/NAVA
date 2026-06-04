@@ -87,4 +87,5 @@ def text_encoder_eval(prompt:str, text_encoder_path:str, text_tokenizer_path:str
 
 if __name__ == "__main__":
     folder = '/content/Wan2.2-TI2V-5B/'
+    prompt = 'a running cat'
     text_encoder_eval(prompt, folder+'models_t5_umt5-xxl-enc-bf16.pth', folder+'/google/umt5-xxl')
